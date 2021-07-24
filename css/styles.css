@@ -63,10 +63,10 @@
   	--scribefont: var(--typewriter);
   	--nrows: 4; --ncols: 4;
 	--corefont: var(--sans);
-  	--corefontsize: 18px;
+  	--corefontsize: 16px;
   	--corefontweight: 500;
   	--corefontweightbold: 600;
-  	--corelineheight: 38px;
+  	--corelineheight: 1.4em;
 }
 
 /* browser fonts ::: https://blog.hubspot.com/website/web-safe-html-css-fonts */
@@ -98,7 +98,7 @@ html {
 	text-decoration: underline;
 }
 i, .italic { font-style: italic; }
-small, .small { font-size: 0.8em; }
+small, .small { font-size: 0.9rem; }
 em, .bold { font-weight: var(--corefontweightbold); }
 
 body { 
@@ -132,10 +132,10 @@ main {
 	border: 0px;
 }
 footer {
+	background-color: var(--brown);
 	position: relative;
-	width:100%;
+	width:80%;
 	padding: 1em;
-	transition: opacity 1s ease-in-out;
 	border: 0px;
 }
 .screenreader-text {
@@ -158,11 +158,11 @@ article > div.book > figure {
 	min-width: 200px;
 	float: right;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 680px) {
 	article > div.book > figure {
 		max-width: 100%;
 		min-width: 80%;
-		float: right;
+		float: clear;
 	}
 }
 body main > header {
