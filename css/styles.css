@@ -225,6 +225,8 @@ h5 {
 	font-family: var(--monospace_zeroslash);
 }
 hr {
+	display: block;
+	clear: right;
 	color: var(--corecolor);
 }
 .flexcontainer {
