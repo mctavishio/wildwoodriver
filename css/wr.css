@@ -442,7 +442,7 @@ main {
   	flex-wrap: wrap;*/
   	/*background-color: var(--warmblack);*/
   	/*margin-left: 8%;*/
-  	width: 90%; max-width: 800px;
+  	width: 90%; max-width: 900px;
   	background-color:rgba(25, 25, 24, 0.4); /*warmblack*/
   	/*border: .5em var(--warmlightgray) dashed;
   	border-left: .5em var(--warmgray) dashed;
@@ -582,8 +582,6 @@ main ul.compress > li {
 main.portfolio {
 	background-color:rgba(25, 25, 24, 0.8);
 }
-
-
 article > div.book > figure {
 	max-width: 40%;
 	min-width: 200px;
@@ -850,13 +848,11 @@ nav ul li.active a:hover {
     stroke-dashoffset: 0;
   }
 }
-}
-
-
 
 figure {
 	margin-bottom: 3.0em;
 	text-align:left;
+	padding-left: 1em;
 	padding-top:1em;
 	padding-bottom:1em;
 }
