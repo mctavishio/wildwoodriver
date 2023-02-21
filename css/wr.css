@@ -784,7 +784,8 @@ main a:before {
 	font-weight:bolder;
 	content: " .: ";
 }*/
-/*main a.corelink:before {
+/*
+main a.corelink:before {
 	font-weight:bolder;
 	content: ">> ";
 }
