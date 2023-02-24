@@ -481,7 +481,7 @@ const drawings = [
 z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 	drawings[Math.floor(e.clock.t/(dt*elements.length*2))%drawings.length](e);
 })
-})(1);
+})(3);
 
 //circles0
 ( dt => {
