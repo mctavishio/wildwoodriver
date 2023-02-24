@@ -373,9 +373,9 @@ z.streams["draw"] = Kefir.combine([z.streams["clock"]], [z.streams["dimensions"]
 }, {clock:{t:0}, dt:1}  );
 
 //main
+/*
 ( dt => {
 	const element = document.querySelector("main");
-
 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 		try {
 			let count = e.clock.t/dt;
@@ -389,7 +389,7 @@ z.streams["draw"] = Kefir.combine([z.streams["clock"]], [z.streams["dimensions"]
 		} catch(err) { z.tools.logerror("box animation ::: " + err ) }
 	})
 })(9);
-
+*/
 
 //line 1
 ( dt => {
