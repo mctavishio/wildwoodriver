@@ -485,7 +485,7 @@ z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 
 //circles0
 ( dt => {
-	let nshapes = [2,4][v];
+	let nshapes = [3,5][v];
 	let width = window.innerWidth, height = window.innerHeight;
 	let colors = ["#163341", "#172F47", "#4477A8", "#2A4A69", "#52779B", "#000000", "#384B60", "#1F3350", "#153A69", "#153559", "#9D9990", "#9D9990", "#181E21", "#0C1D32", "#706959", "#D6D3CE", "#534E48", "#3E5766", "#222E34", "#BBB4A4", "#7C7D7F"]; //birdland
 	const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
@@ -503,11 +503,15 @@ z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 		e => {
 			try {
 				let count = e.clock.t/dt;
-				let r = z.tools.randominteger(e.dimensions.min/10, e.dimensions.min);
+				let rmult = [1.0,0.6,0.5,0.4,0.2][count%nshapes];
+				let r = rmult*z.tools.randominteger(e.dimensions.min/10, e.dimensions.min);
 				let color = colors[z.tools.randominteger(0, colors.length)];
+				let props = [{ fillOpacity: 0.0, strokeOpacity: 1.0, fill: color, stroke: color, strokeWidth: z.tools.randominteger(4,6)/10*r, strokeDasharray: z.tools.randominteger(8, r), cx: e.dimensions.width/2, cy: 0, r: r }, { fillOpacity: 1.0, strokeOpacity: 0.0, fill: color, stroke: color, strokeWidth: z.tools.randominteger(4,6)/10*r, strokeDasharray: z.tools.randominteger(8, r), cx: e.dimensions.width/2, cy: 0, r: r }][count%2]; 
 				Velocity({	
 					elements: elements[count%nshapes].el,
-					properties: { fillOpacity: z.tools.randominteger(1,8)/10, strokeOpacity: 0.0, fill: color, stroke: color, strokeWidth: z.tools.randominteger(1,8)/10*r, strokeDasharray: z.tools.randominteger(8, r), cx: e.dimensions.width/2, cy: 0, r: r },
+					//properties: { fillOpacity: z.tools.randominteger(1,8)/10, strokeOpacity: 0.0, fill: color, stroke: color, strokeWidth: z.tools.randominteger(1,8)/10*r, strokeDasharray: z.tools.randominteger(8, r), cx: e.dimensions.width/2, cy: 0, r: r },
+					//properties: { fillOpacity: 1.0, strokeOpacity: 0.0, fill: color, stroke: color, strokeWidth: z.tools.randominteger(1,8)/10*r, strokeDasharray: z.tools.randominteger(8, r), cx: e.dimensions.width/2, cy: 0, r: r },
+					properties: props,
 					options: { duration: z.tools.randominteger(1000*dt*nshapes/3,1000*dt*nshapes), delay: 0 },
 				});
 			} catch(err) { z.tools.logerror("circle animation 1 ::: " + err ) }
@@ -517,7 +521,7 @@ z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 	z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 		drawings[0](e);
 	})
-})(2);
+})(1);
 
 };
 //controls
