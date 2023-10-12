@@ -403,7 +403,7 @@ z.streams["draw"] = Kefir.combine([z.streams["clock"]], [z.streams["dimensions"]
 
 //line 1
 ( dt => {
-const nelements=[[...Array(4).keys()],[...Array(4).keys()]][v];
+const nelements=[[...Array(2).keys()],[...Array(4).keys()]][v];
 const elements = nelements.reduce( (acc, id) => {
 	z.tools.logmsg("create line element ::: " + id);
 	let el = document.createElementNS("http://www.w3.org/2000/svg", "line");
