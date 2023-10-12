@@ -150,7 +150,7 @@ grammar, syntax, algorithm, text/code to produce sound recordings, film, generat
 <script>
 let width = window.innerWidth, height = window.innerHeight;
 let min = Math.min(width, height), max = Math.max(width, height);
-let version = (min < 680 || max < 980) ? "small" : "large";
+let version = (min < 880 || max < 980) ? "small" : "large";
 let v = version === "small" ? 0 : 1;
 let z = {};
 z.tools = {
@@ -227,7 +227,7 @@ z.streams = {
 	})( ),
 	dimensions: ( () => {
 		let dt = .4;
-		const ngrids=[2,2], npasts=[0,0];
+		const ngrids=[1,2], npasts=[0,0];
 		let state0 = { dt: dt, count: 0,
 			grid: { nrows: ngrids[v], ncols: ngrids[v], dx: Math.floor(width/ngrids[v]), dy: Math.floor(height/ngrids[v]), sw: 12, pastn: npasts[v] },
 			width: width, height: height, 
@@ -450,7 +450,7 @@ z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 
 //line 2
 ( dt => {
-const nelements=[[...Array(4).keys()],[...Array(4).keys()]][v];
+const nelements=[[...Array(2).keys()],[...Array(4).keys()]][v];
 const elements = nelements.reduce( (acc, id) => {
 	z.tools.logmsg("create line element ::: " + id);
 	let el = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -495,7 +495,7 @@ z.streams["draw"].filter(e => e.clock.t%dt===0).onValue( e => {
 
 //circles0
 ( dt => {
-	let nshapes = [3,5][v];
+	let nshapes = [2,5][v];
 	let width = window.innerWidth, height = window.innerHeight;
 	let colors = ["#163341", "#172F47", "#4477A8", "#2A4A69", "#52779B", "#000000", "#384B60", "#1F3350", "#153A69", "#153559", "#9D9990", "#9D9990", "#181E21", "#0C1D32", "#706959", "#D6D3CE", "#534E48", "#3E5766", "#222E34", "#BBB4A4", "#7C7D7F"]; //birdland
 	const elements = [...Array(nshapes).keys()].reduce( (acc, j) => {
